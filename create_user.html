@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- configuração básica do documento html -->
   <meta charset="UTF-8">
   <title>Criar Usuário</title>
+  <!-- link para arquivo de estilos css -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- container principal da página de criação de usuário (sistema antigo) -->
   <div class="container">
+    <!-- título da página -->
     <h1>Criar Usuário</h1>
+    <!-- formulário para criar usuário (sistema antigo - não usado mais) -->
+    <!-- enctype="multipart/form-data" necessário para upload de foto -->
     <form action="/create_user" method="POST" enctype="multipart/form-data">
+      <!-- campo para nome do usuário (obrigatório) -->
       <input type="text" name="name" placeholder="Seu nome" required>
+      <!-- campo para upload de foto (obrigatório no sistema antigo) -->
       <input type="file" name="photo" accept="image/*" required>
+      <!-- botão para criar usuário -->
       <button type="submit">Criar</button>
     </form>
   </div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- configuração básica do documento html -->
+  <meta charset="UTF-8">
+  <title>Cadastro - My Brothers</title>
+  <!-- link para arquivo de estilos css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- container principal da página de cadastro -->
+  <div class="container">
+    <!-- título da página de cadastro -->
+    <h1>📝 Cadastro - My Brothers</h1>
+    
+    <!-- exibe mensagem de erro se houver (username já existe) -->
+    {% if error %}
+      <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <!-- formulário de cadastro -->
+    <!-- enctype="multipart/form-data" necessário para upload de foto -->
+    <form action="/register" method="POST" enctype="multipart/form-data">
+      <!-- campo para nome de usuário único (obrigatório) -->
+      <input type="text" name="username" placeholder="Nome de usuário" required>
+      <!-- campo para nome completo (obrigatório) -->
+      <input type="text" name="name" placeholder="Nome completo" required>
+      <!-- campo para senha (obrigatório) -->
+      <input type="password" name="password" placeholder="Senha" required>
+      <!-- campo para upload de foto (opcional) -->
+      <input type="file" name="photo" accept="image/*">
+      <!-- botão para enviar formulário de cadastro -->
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- links de navegação -->
+    <div class="login-links">
+      <!-- link para página de login -->
+      <p>Já tem conta? <a href="/login">Faça login aqui</a></p>
+    </div>
+  </div>
+</body>
+</html>

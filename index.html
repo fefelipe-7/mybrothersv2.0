@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- configuração básica do documento html -->
   <meta charset="UTF-8">
   <title>MyBroters.com</title>
+  <!-- link para arquivo de estilos css -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- barra superior com informações do usuário logado -->
   <div class="user-info">
+    <!-- exibe foto do usuário se existir -->
     {% if user.photo %}
       <img src="uploads/{{ user.photo }}" alt="Foto do usuário">
     {% endif %}
+    <!-- exibe nome do usuário -->
     <span>{{ user.name }}</span>
+    <!-- formulário para logout (botão sair) -->
+    <form action="/logout" method="POST" style="display: inline;">
+      <button type="submit" class="logout-btn">Sair</button>
+    </form>
   </div>
 
+  <!-- container principal da página -->
   <div class="container">
+    <!-- título da aplicação -->
     <h1>💬 My Brothers</h1>
 
+    <!-- formulário para criar novo post -->
+    <!-- enctype="multipart/form-data" necessário para upload de arquivos -->
     <form action="/post" method="POST" enctype="multipart/form-data">
+      <!-- campo de texto para o post (obrigatório) -->
       <textarea name="text" placeholder="O que você está pensando?" required></textarea>
+      <!-- campo para upload de imagem (opcional) -->
       <input type="file" name="image" accept="image/*">
+      <!-- botão para enviar o post -->
       <button type="submit">Postar</button>
     </form>
 
+    <!-- seção que exibe todos os posts -->
     <div class="posts">
+      <!-- loop que percorre todos os posts -->
       {% for post in posts %}
       <div class="post">
+        <!-- cabeçalho do post com informações do autor -->
         <div class="post-header">
+          <!-- exibe foto do autor se existir -->
           {% if post.user_photo %}
             <img src="uploads/{{ post.user_photo }}" class="avatar">
           {% endif %}
+          <!-- exibe nome do autor -->
           <strong>{{ post.user }}</strong>
+          <!-- exibe data e hora do post -->
           <span class="date">{{ post.date }}</span>
 
-          {% if user.name == "Rian(adm)" %}
+          <!-- botão de apagar (apenas para administradores) -->
+          {% if user.is_admin %}
           <form action="/delete_post/{{ loop.index0 }}" method="POST" style="margin-left:auto;">
             <button type="submit" class="delete-btn">Apagar</button>
           </form>
           {% endif %}
         </div>
+        <!-- texto do post -->
         <p>{{ post.text }}</p>
+        <!-- exibe imagem do post se existir -->
         {% if post.image %}
           <img src="uploads/{{ post.image }}" alt="Imagem do post">
         {% endif %}

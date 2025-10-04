@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- configuração básica do documento html -->
+  <meta charset="UTF-8">
+  <title>Login - My Brothers</title>
+  <!-- link para arquivo de estilos css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- container principal da página de login -->
+  <div class="container">
+    <!-- título da página de login -->
+    <h1>🔐 Login - My Brothers</h1>
+    
+    <!-- exibe mensagem de erro se houver (credenciais inválidas) -->
+    {% if error %}
+      <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <!-- formulário de login -->
+    <form action="/login" method="POST">
+      <!-- campo para nome de usuário (obrigatório) -->
+      <input type="text" name="username" placeholder="Nome de usuário" required>
+      <!-- campo para senha (obrigatório) -->
+      <input type="password" name="password" placeholder="Senha" required>
+      <!-- botão para enviar formulário de login -->
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- links de navegação -->
+    <div class="login-links">
+      <!-- link para página de cadastro -->
+      <p>Não tem conta? <a href="/register">Cadastre-se aqui</a></p>
+    </div>
+  </div>
+</body>
+</html>
