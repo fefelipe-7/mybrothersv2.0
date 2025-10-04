@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Criar Usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Criar Usuário</h1>
+    <form action="/create_user" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="file" name="photo" accept="image/*" required>
+      <button type="submit">Criar</button>
+    </form>
+  </div>
+</body>
+</html>

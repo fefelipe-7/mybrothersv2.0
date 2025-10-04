@@ -1,0 +1,161 @@
+/* Fundo da página */
+body {
+  background: url('fundo.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Página de criação de usuário */
+.user-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.create-user {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+}
+
+.create-user input, .create-user button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 8px;
+  border: none;
+}
+
+.create-user button {
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.create-user button:hover {
+  background: #45a049;
+}
+
+/* Informações do usuário no canto superior direito */
+.user-info {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.user-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* Container principal */
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #000;
+  text-align: center;
+}
+
+/* Formulário de postagem */
+form textarea {
+  width: 90%;
+  height: 80px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+form input[type="file"] {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Feed de posts */
+.posts {
+  margin-top: 20px;
+}
+
+.post {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Cabeçalho de cada post */
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Imagem do post */
+.post img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Data do post */
+.date {
+  margin-left: auto;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+/* Botão de apagar (só aparece para Rian(adm)) */
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.delete-btn:hover {
+  background-color: #ff1a1a;
+}

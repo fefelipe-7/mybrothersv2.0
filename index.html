@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MyBroters.com</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="user-info">
+    {% if user.photo %}
+      <img src="uploads/{{ user.photo }}" alt="Foto do usuário">
+    {% endif %}
+    <span>{{ user.name }}</span>
+  </div>
+
+  <div class="container">
+    <h1>💬 My Brothers</h1>
+
+    <form action="/post" method="POST" enctype="multipart/form-data">
+      <textarea name="text" placeholder="O que você está pensando?" required></textarea>
+      <input type="file" name="image" accept="image/*">
+      <button type="submit">Postar</button>
+    </form>
+
+    <div class="posts">
+      {% for post in posts %}
+      <div class="post">
+        <div class="post-header">
+          {% if post.user_photo %}
+            <img src="uploads/{{ post.user_photo }}" class="avatar">
+          {% endif %}
+          <strong>{{ post.user }}</strong>
+          <span class="date">{{ post.date }}</span>
+
+          {% if user.name == "Rian(adm)" %}
+          <form action="/delete_post/{{ loop.index0 }}" method="POST" style="margin-left:auto;">
+            <button type="submit" class="delete-btn">Apagar</button>
+          </form>
+          {% endif %}
+        </div>
+        <p>{{ post.text }}</p>
+        {% if post.image %}
+          <img src="uploads/{{ post.image }}" alt="Imagem do post">
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
