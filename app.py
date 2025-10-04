@@ -5,7 +5,7 @@ from datetime import datetime
 app = Flask(__name__, template_folder='.', static_folder='.')
 
 POSTS_FILE = 'posts.json'
-USER_FILE = 'user.json'
+USER_FILE = 'users.json'  # Corrigido: arquivo real é users.json
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def load_json(path):
